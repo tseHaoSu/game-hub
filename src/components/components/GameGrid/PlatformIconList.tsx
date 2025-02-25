@@ -32,7 +32,7 @@ const PlatformIconList = ({ platforms }: Props) => {
   return (
     <HStack>
       {platforms.map((platform) => (
-        <Badge mr="2" size="lg">
+        <Badge mr="2" size="lg" key={platform.id}>
           <Icon as={iconMap[platform.slug]} />
         </Badge>
       ))}
