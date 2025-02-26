@@ -4,14 +4,18 @@ import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "@/services/image-url";
 
-
 interface Props {
   game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card.Root>
+    <Card.Root
+      height="100%"
+      display="flex"
+      flexDirection="column"
+      overflow="hidden"
+    >
       <Image src={getCroppedImageUrl(game.background_image)} height="200px" />
       <Card.Body>
         <Card.Title mt="2">{game.name}</Card.Title>

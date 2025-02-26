@@ -30,7 +30,7 @@ const PlatformIconList = ({ platforms }: Props) => {
     android: FaAndroid,
   };
   return (
-    <HStack>
+    <HStack flexWrap={"wrap"}>
       {platforms.map((platform) => (
         <Badge mr="2" size="lg" key={platform.id}>
           <Icon as={iconMap[platform.slug]} />
