@@ -6,7 +6,7 @@ interface Props {
 
 const Demo = ({ children }: Props) => {
   return (
-    <Box borderRadius={20} overflow="hidden" boxShadow="xl" width="350px">
+    <Box borderRadius={20} overflow="hidden" boxShadow="xl" width="100%">
       {children}
     </Box>
   );

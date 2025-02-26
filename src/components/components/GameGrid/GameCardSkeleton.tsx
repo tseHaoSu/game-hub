@@ -4,7 +4,12 @@ import { SkeletonText } from "@/components/ui/skeleton";
 
 const GameCardSkeleton = () => {
   return (
-    <Card.Root>
+    <Card.Root
+      height="100%"
+      display="flex"
+      flexDirection="column"
+      overflow="hidden"
+    >
       <Skeleton height="200px" />
       <Card.Body>
         <SkeletonText />

@@ -16,7 +16,7 @@ const GameCard = ({ game }: Props) => {
       flexDirection="column"
       overflow="hidden"
     >
-      <Image src={getCroppedImageUrl(game.background_image)} height="200px" />
+      <Image src={getCroppedImageUrl(game.background_image)}  />
       <Card.Body>
         <Card.Title mt="2">{game.name}</Card.Title>
         <HStack justifyContent={"space-between"} flexWrap={"wrap"}>
