@@ -1,40 +1,47 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem } from "@chakra-ui/react";
 import "./App.css";
 import NavBar from "./components/components/NavBar/NavBar";
 import GameGrid from "./components/components/GameGrid/GameGrid";
 import GenreList from "./components/components/Genre/GenreList";
 import { Genre } from "./hooks/useGenres";
 import { useState } from "react";
+import PlatformSelector from "./components/components/PlatformSelector/PlatformSelector";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   return (
-    <Grid
-      templateAreas={{
-        base: `
+    <Box maxW="1400px" mx="auto" px={4}>
+      <Grid
+        templateAreas={{
+          base: `
       "nav"
       "main"
     `,
-        lg: `
+          lg: `
       "nav nav"
       "aside main"`,
-      }}
-      templateColumns={{
-        base: "1fr",
-        lg: "250px 1fr",
-      }}
-      gap={4}
-    >
-      <GridItem gridArea="nav">
-        <NavBar />
-      </GridItem>
-      <GridItem gridArea="aside">
-        <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
-      </GridItem>
-      <GridItem gridArea="main">
-        <GameGrid selectedGenre={selectedGenre}/>
-      </GridItem>
-    </Grid>
+        }}
+        templateColumns={{
+          base: "1fr",
+          lg: "250px 1fr",
+        }}
+        gap={5}
+      >
+        <GridItem gridArea="nav">
+          <NavBar />
+        </GridItem>
+        <GridItem gridArea="aside">
+          <GenreList
+            onSelectGenre={(genre) => setSelectedGenre(genre)}
+            selectedGenre={selectedGenre}
+          />
+        </GridItem>
+        <GridItem gridArea="main" gap={5}>
+          <PlatformSelector />
+          <GameGrid selectedGenre={selectedGenre} />
+        </GridItem>
+      </Grid>
+    </Box>
   );
 }
 

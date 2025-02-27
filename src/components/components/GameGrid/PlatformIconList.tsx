@@ -1,5 +1,5 @@
 import { Platform } from "@/hooks/useGames";
-import { Badge, HStack, Icon } from "@chakra-ui/react";
+import { HStack, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { BsGlobe } from "react-icons/bs";
 import {
@@ -31,12 +31,10 @@ const PlatformIconList = ({ platforms }: Props) => {
     android: FaAndroid,
   };
   return (
-    <HStack flexWrap={"wrap"} gap="10">
-      <Badge size="md">
-        {platforms.map((platform) => (
-          <Icon as={iconMap[platform.slug]} key={platform.id} />
-        ))}
-      </Badge>
+    <HStack flexWrap="wrap" gap="10">
+      {platforms.map((platform) => (
+        <Icon as={iconMap[platform.slug]} boxSize={5} key={platform.id} />
+      ))}
     </HStack>
   );
 };
