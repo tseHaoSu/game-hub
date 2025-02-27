@@ -13,7 +13,6 @@ const GameCard = ({ game }: Props) => {
     <Card.Root
       height="100%"
       display="flex"
-      flexDirection="column"
       overflow="hidden"
       colorPalette="yellow"
     >
