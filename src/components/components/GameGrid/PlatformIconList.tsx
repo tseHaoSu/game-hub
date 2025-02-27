@@ -18,6 +18,7 @@ interface Props {
 }
 
 const PlatformIconList = ({ platforms }: Props) => {
+  if (!platforms?.length) return null;
   const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,
@@ -30,12 +31,12 @@ const PlatformIconList = ({ platforms }: Props) => {
     android: FaAndroid,
   };
   return (
-    <HStack flexWrap={"wrap"}>
-      {platforms.map((platform) => (
-        <Badge mr="2" size="lg" key={platform.id}>
-          <Icon as={iconMap[platform.slug]} />
-        </Badge>
-      ))}
+    <HStack flexWrap={"wrap"} gap="10">
+      <Badge size="md">
+        {platforms.map((platform) => (
+          <Icon as={iconMap[platform.slug]} key={platform.id} />
+        ))}
+      </Badge>
     </HStack>
   );
 };
