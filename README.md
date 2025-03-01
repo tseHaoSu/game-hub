@@ -1,21 +1,21 @@
 # Project Name
+GameHub 
 
 
 ## Description
-A brief description of the project, what it does, and its purpose.
+A platform that provide details on video games
 
 ## Features
 - List of features
-- User authentication (if applicable)
-- API integration (if applicable)
+- User authentication 
+- API integration 
 - Responsive design
-- State management (if applicable)
 
 ## Tech Stack
-- **Frontend:** React, React Router, Redux (if applicable), Tailwind CSS (or other styling libraries)
-- **Backend:** Node.js, Express (if applicable)
-- **Database:** MongoDB, Firebase, PostgreSQL (if applicable)
-- **Deployment:** Vercel, Netlify, AWS (if applicable)
+- **Frontend:** React, React Router, Redux (if applicable), Tailwind CSS 
+- **Backend:** Node.js, Express 
+- **Database:** Firebase
+- **Deployment:** Vercel, Netlify
 
 ## Installation
 ### Prerequisites
@@ -26,5 +26,4 @@ Ensure you have the following installed:
 ### Setup
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/project-name.git
-   cd project-name
+   git clone https://github.com/tseHaoSu/game-hub.git
