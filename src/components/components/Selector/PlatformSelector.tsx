@@ -14,12 +14,10 @@ interface Props {
   selectedPlatform: Platform | null;
 }
 
-  
-
 const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data, error } = usePlatforms();
   const filteredPlatformsIds = [12, 13];
-  const filteredPlatforms = data.filter(
+  const filteredPlatforms = data?.results.filter(
     (platform) => !filteredPlatformsIds.includes(platform.id)
   );
   if (error) return null;
@@ -31,7 +29,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
         </Button>
       </MenuTrigger>
       <MenuContent>
-        {filteredPlatforms.map((platform) => (
+        {filteredPlatforms?.map((platform) => (
           <MenuItem
             key={platform.id}
             onClick={() => onSelectPlatform(platform)}
