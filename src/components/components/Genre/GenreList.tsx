@@ -18,15 +18,11 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data: genres, isLoading, error } = useGenres();
   if (isLoading) return <Spinner />;
   if (error) return null;
-  const excludedIds = [2, 15, 6];
-  const filteredGenres = genres?.results.filter(
-    (genre) => !excludedIds.includes(genre.id)
-  );
   return (
     <>
       <Heading marginBottom={3}>Genre</Heading>
       <List.Root listStyle="none" gap={2}>
-        {filteredGenres?.map((genre: Genre) => (
+        {genres?.results.map((genre: Genre) => (
           <List.Item key={genre.id}>
             <HStack>
               <Image
