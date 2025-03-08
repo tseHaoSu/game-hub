@@ -14,8 +14,6 @@ const ColorModeSwitch = () => {
             <Icon as={FaSun} color="yellow.400" />
           </Switch.Indicator>
         </Switch.Control>
-        <Switch.Label>
-        </Switch.Label>
       </Switch.Root>
     </HStack>
   );

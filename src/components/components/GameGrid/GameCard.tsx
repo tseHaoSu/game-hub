@@ -27,8 +27,10 @@ const GameCard = ({ game }: Props) => {
         <Card.Title mt="2">{game.name}</Card.Title>
       </Card.Body>
       <Card.Footer justifyContent={"flex-end"}>
-        <Button variant="outline">View</Button>
-        <Button>Join</Button>
+        <HStack gap={2}>
+          <Button variant="outline">View</Button>
+          <Button>Join</Button>
+        </HStack>
       </Card.Footer>
     </Card.Root>
   );
