@@ -11,15 +11,15 @@ import { FaChevronDown } from "react-icons/fa6";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
 
-const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
+const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
   const { data, error } = usePlatforms();
-  const filteredPlatformsIds = [12, 13];
-  const filteredPlatforms = data?.results.filter(
-    (platform) => !filteredPlatformsIds.includes(platform.id)
+  const selectedPlatform = data?.results.find(
+    (platform) => platform.id === selectedPlatformId
   );
+  
   if (error) return null;
   return (
     <MenuRoot>
@@ -29,7 +29,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
         </Button>
       </MenuTrigger>
       <MenuContent>
-        {filteredPlatforms?.map((platform) => (
+        {data?.results.map((platform) => (
           <MenuItem
             key={platform.id}
             onClick={() => onSelectPlatform(platform)}

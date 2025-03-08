@@ -11,18 +11,18 @@ import {
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
-  const { data: genres, isLoading, error } = useGenres();
+const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
+  const { data, isLoading, error } = useGenres();
   if (isLoading) return <Spinner />;
   if (error) return null;
   return (
     <>
       <Heading marginBottom={3}>Genre</Heading>
       <List.Root listStyle="none" gap={2}>
-        {genres?.results.map((genre: Genre) => (
+        {data?.results.map((genre: Genre) => (
           <List.Item key={genre.id}>
             <HStack>
               <Image
@@ -35,7 +35,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                 onClick={() => onSelectGenre(genre)}
                 variant="ghost"
                 fontSize={"md"}
-                fontWeight={genre.id == selectedGenre?.id ? "bold" : "normal"}
+                fontWeight={genre.id == selectedGenreId ? "bold" : "normal"}
               >
                 {genre.name}
               </Button>

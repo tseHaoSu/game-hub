@@ -1,5 +1,5 @@
 import { Platform } from "@/hooks/useGames";
-import { HStack, Icon } from "@chakra-ui/react";
+import { HStack, Box } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 import { BsGlobe } from "react-icons/bs";
 import {
@@ -19,6 +19,7 @@ interface Props {
 
 const PlatformIconList = ({ platforms }: Props) => {
   if (!platforms?.length) return null;
+
   const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,
@@ -30,11 +31,22 @@ const PlatformIconList = ({ platforms }: Props) => {
     web: BsGlobe,
     android: FaAndroid,
   };
+
   return (
     <HStack flexWrap="wrap" gap="10">
-      {platforms.map((platform) => (
-        <Icon as={iconMap[platform.slug]} boxSize={5} key={platform.id} />
-      ))}
+      {platforms.map((platform) => {
+        // Skip platforms that don't have a matching icon
+        if (!iconMap[platform.slug]) {
+          console.warn(`No icon found for platform: ${platform.slug}`);
+          return null;
+        }
+        const IconComponent = iconMap[platform.slug];
+        return (
+          <Box key={platform.id}>
+            <IconComponent size={20} />
+          </Box>
+        );
+      })}
     </HStack>
   );
 };
