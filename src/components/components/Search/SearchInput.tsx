@@ -1,5 +1,5 @@
 import { InputGroup } from "@/components/ui/input-group";
-import useGameQueryStore from "@/store";
+import useGameQueryStore from "@/store/store";
 import { Input } from "@chakra-ui/react";
 import { useRef } from "react";
 

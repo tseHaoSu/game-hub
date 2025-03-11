@@ -1,5 +1,5 @@
 import APIClient, { FetchDataResponse } from "@/services/api-client";
-import useGameQueryStore from "@/store";
+import useGameQueryStore from "@/store/store";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
 export interface Platform {
@@ -29,7 +29,7 @@ const useGames = () => {
           parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchText,
-          page: pageParam  
+          page: pageParam,
         },
       }),
     getNextPageParam: (lastPage, allPages) => {

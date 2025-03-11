@@ -1,4 +1,4 @@
-import useGameQueryStore from "@/store";
+import useGameQueryStore from "@/store/store";
 import {
   Button,
   MenuContent,

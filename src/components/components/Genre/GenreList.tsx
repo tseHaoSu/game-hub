@@ -1,6 +1,6 @@
 import useGenres, { Genre } from "@/hooks/useGenres";
 import getCroppedImageUrl from "@/services/image-url";
-import useGameQueryStore from "@/store";
+import useGameQueryStore from "@/store/store";
 import {
   Button,
   Heading,

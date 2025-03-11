@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/menu";
 import usePlatform from "@/hooks/usePlatform";
 import usePlatforms from "@/hooks/usePlatforms";
-import useGameQueryStore from "@/store";
+import useGameQueryStore from "@/store/store";
 import { Button } from "@chakra-ui/react";
 import { FaChevronDown } from "react-icons/fa6";
 
